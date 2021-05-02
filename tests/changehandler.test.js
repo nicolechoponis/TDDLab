@@ -50,10 +50,13 @@ describe("Tests for ChangeHandler", function() {
     expect(changeHandler.cashTendered).toEqual(41)
   })
 
-  test("Returns true if cashTendered more than amountDue", function(){
+  test("Returns true if cashTendered more than amountDue", function(){ 
+    //these tests should be testing your isPaymentSufficient() function, so you start with an amount due, 
+    //enter a coin or set cashTendered to a value thats more than the amount due and your expect would be:
     const changeHandler = new ChangeHandler(45);
     changeHandler.cashTendered= 100;
-    expect(changeHandler.cashTendered>changeHandler.amountDue).toBe(true);
+    expect(changeHandler.isPaymentSufficient()).toBe(true)
+//     expect(changeHandler.cashTendered>changeHandler.amountDue).toBe(true);
   })
 
   test("Returns false if cashTendered less than amountDue", function(){
